@@ -1,0 +1,231 @@
+\RequirePackage{mmap}  % make PDF copy and paste-able
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+% \usepackage{lmodern} % from http://tex.stackexchange.com/a/115089/121234
+\usepackage[margin=0.5in]{geometry}
+
+\setlength{\parskip}{0ex}
+%\setlength{\columnseprule}{0.5pt}
+\usepackage{ragged2e}
+  \setlength{\RaggedRightParindent}{1em}
+
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{listings}
+\lstset{%
+  basicstyle=\scriptsize\ttfamily,  % the size of the fonts 
+  columns=fixed,          % anything else is horrifying
+  showspaces=false,       % show spaces using underscores?
+  showstringspaces=false, % underline spaces within strings?
+  showtabs=false,         % show tabs within strings?
+  xleftmargin=1.5em,      % left margin space
+}
+\lstdefinestyle{inline}{basicstyle=\ttfamily}
+
+\usepackage[dvipsnames]{xcolor}
+  \definecolor{headcolor}{HTML}{E34234}  % vermillion
+\usepackage{titlesec}
+% \titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before-code }[ after-code ]
+% \titlespacing*{ command }{ left }{ before-sep }{ after-sep }[ right-sep ]
+\titleformat{\section}[runin]{\color{headcolor}\bf}{}{0em}{}
+  \titlespacing*{\section}{0em}{0.65ex}{0.20em}
+
+% TODO
+\pagestyle{empty}
+\begin{document}\thispagestyle{empty}
+\RaggedRight
+\setlength{\columnseprule}{0.4pt}
+
+\begin{multicols}{3}
+\section{Heaps}
+\begin{enumerate}
+\setlength\itemsep{0em}
+\item \texttt{std::make\_heap}
+\item \texttt{std::push\_heap}
+\item \texttt{std::pop\_heap}
+\end{enumerate}
+
+\section{Sorting}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::sort}
+\item \texttt{std::partial\_sort}
+\item \texttt{std::nth\_order}
+\item \texttt{std::sort\_heap}
+\item \texttt{std::inplace\_merge}
+\end{enumerate}
+
+\section{Partitioning}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::partition}
+\item \texttt{std::partition\_point}
+\end{enumerate}
+
+\section{Permutations}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::rotate}
+\item \texttt{std::shuffle}
+\item \texttt{std::next\_permutation}
+\item \texttt{std::prev\_permutation}
+\item \texttt{std::reverse}
+\end{enumerate}
+
+\section{Miscellaneous}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::stable\_sort}
+\item \texttt{std::stable\_partition}
+\item \texttt{std::is\_sorted}
+\item \texttt{std::is\_partitioned}
+\item \texttt{std::is\_heap}
+\item \texttt{std::is\_sorted\_until}
+\item \texttt{std::is\_partitioned\_until}
+\item \texttt{std::is\_heap\_until}
+\end{enumerate}
+
+\section{Numeric algorithms}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::count}
+\item \texttt{std::accumulate}
+\item \texttt{std::transform\_reduce}
+\item \texttt{std::partial\_sum}
+\item \texttt{std::transform\_inclusive\_scan}
+\item \texttt{std::transform\_exclusive\_scan}
+\item \texttt{std::inner\_product}
+\item \texttt{std::adjacent\_difference}
+\item \texttt{std::sample}
+\end{enumerate}
+
+\section{Querying}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::all\_of}
+\item \texttt{std::any\_of}
+\item \texttt{std::none\_of}
+\item \texttt{std::equal}
+\item \texttt{std::is\_permutation}
+\item \texttt{std::lexographic\_compare}
+\item \texttt{std::mismatch}
+\end{enumerate}
+
+\section{Value Search}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::find}
+\item \texttt{std::adjacent\_find}
+\item \texttt{std::equal\_range}
+\item \texttt{std::lower\_bound}
+\item \texttt{std::upper\_bound}
+\item \texttt{std::binary\_search}
+\end{enumerate}
+
+\section{Range Search}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::search}
+\item \texttt{std::find\_end}
+\item \texttt{std::find\_first\_of}
+\item \texttt{std::max\_element}
+\item \texttt{std::min\_element}
+\item \texttt{std::minmax\_element}
+\end{enumerate}
+
+\section{Set Algorithms}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::set\_difference}
+\item \texttt{std::set\_intersection}
+\item \texttt{std::set\_union}
+\item \texttt{std::set\_symmetric\_difference}
+\item \texttt{std::includes}
+\item \texttt{std::merge}
+\end{enumerate}
+
+\section{Moving algorithms}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::copy}
+\item \texttt{std::move}
+\item \texttt{std::swap\_ranges}
+\item \texttt{std::copy\_backwards}
+\item \texttt{std::move\_backwards}
+\end{enumerate}
+
+\section{Value modifiers}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::fill}
+\item \texttt{std::generate}
+\item \texttt{std::iota}
+\item \texttt{std::replace}
+\end{enumerate}
+
+\section{Structure changers}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::remove}
+\item \texttt{std::unique}
+\item \texttt{std::erase}
+\item \texttt{std::remove\_copy}
+\item \texttt{std::unique\_copy}
+\item \texttt{std::reverse\_copy}
+\item \texttt{std::rotate\_copy}
+\item \texttt{std::replace\_copy}
+\item \texttt{std::partition\_copy}
+\item \texttt{std::partial\_sort\_copy}
+\end{enumerate}
+
+\section{*\_if algorithms}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::find\_if}
+\item \texttt{std::find\_if\_not}
+\item \texttt{std::remove\_if}
+\item \texttt{std::remove\_copy\_if}
+\item \texttt{std::replace\_if}
+\item \texttt{std::replace\_copy\_if}
+\item \texttt{std::copy\_if}
+\end{enumerate}
+
+\section{Unclassified}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::transform}
+\item \texttt{std::for\_each}
+\end{enumerate}
+
+\section{Raw memory}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::uninitialized\_fill}
+\item \texttt{std::uninitialized\_copy}
+\item \texttt{std::uninitialized\_move}
+\item \texttt{std::destroy}
+\item \small{\texttt{std::uninitialized\_default\_construct}}
+\item \texttt{std::uninitialized\_value\_construct}
+\end{enumerate}
+
+\section{*\_N algorithms:}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
+\item \texttt{std::copy\_n}
+\item \texttt{std::fill\_n}
+\item \texttt{std::generate\_n}
+\item \texttt{std::search\_n}
+\item \texttt{std::for\_each\_n}
+\item \texttt{std::uninitialized\_copy\_n}
+\item \texttt{std::uninitialized\_fill\_n}
+\item \texttt{std::uninitialized\_move\_n}
+\item \small{\texttt{std::uninitialized\_default\_constructor\\\_n}}
+\item \texttt{std::uninitialized\_value\_constructor\_n}
+\item \texttt{std::destroy\_n}
+\end{enumerate}
+\end{multicols}
+
+\end{document}
