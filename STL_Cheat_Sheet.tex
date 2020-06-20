@@ -5,14 +5,15 @@
 \usepackage[T1]{fontenc}
 \usepackage{multicol}
 % \usepackage{lmodern} % from http://tex.stackexchange.com/a/115089/121234
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.60in]{geometry}
 
 \setlength{\parskip}{0ex}
 %\setlength{\columnseprule}{0.5pt}
 \usepackage{ragged2e}
-  \setlength{\RaggedRightParindent}{1em}
+\setlength{\RaggedRightParindent}{1em}
 
 \usepackage{url}
+\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{listings}
 \lstset{%
@@ -21,21 +22,31 @@
   showspaces=false,       % show spaces using underscores?
   showstringspaces=false, % underline spaces within strings?
   showtabs=false,         % show tabs within strings?
-  xleftmargin=1.5em,      % left margin space
+  xleftmargin=1.0em,      % left margin space
 }
 \lstdefinestyle{inline}{basicstyle=\ttfamily}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+}
 
 \usepackage[dvipsnames]{xcolor}
   \definecolor{headcolor}{HTML}{E34234}  % vermillion
 \usepackage{titlesec}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\color{headcolor}STL Cheatsheet by \href{www.pranavsaileshmani.com}{Pranav Mani}}
+
 % \titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before-code }[ after-code ]
 % \titlespacing*{ command }{ left }{ before-sep }{ after-sep }[ right-sep ]
 \titleformat{\section}[runin]{\color{headcolor}\bf}{}{0em}{}
   \titlespacing*{\section}{0em}{0.65ex}{0.20em}
+ 
+\pagestyle{fancy}
 
-% TODO
-\pagestyle{empty}
-\begin{document}\thispagestyle{empty}
+\begin{document}
+
 \RaggedRight
 \setlength{\columnseprule}{0.4pt}
 
@@ -75,11 +86,15 @@
 \item \texttt{std::reverse}
 \end{enumerate}
 
-\section{Miscellaneous}
+\section{Stable algorithms}
 \begin{enumerate}[resume]
 \setlength\itemsep{0em}
 \item \texttt{std::stable\_sort}
 \item \texttt{std::stable\_partition}
+\end{enumerate}
+\section{is\_* algorithms}
+\begin{enumerate}[resume]
+\setlength\itemsep{0em}
 \item \texttt{std::is\_sorted}
 \item \texttt{std::is\_partitioned}
 \item \texttt{std::is\_heap}
@@ -95,8 +110,8 @@
 \item \texttt{std::accumulate}
 \item \texttt{std::transform\_reduce}
 \item \texttt{std::partial\_sum}
-\item \texttt{std::transform\_inclusive\_scan}
-\item \texttt{std::transform\_exclusive\_scan}
+\item \small{\texttt{std::transform\_inclusive\_scan}}
+\item \small{\texttt{std::transform\_exclusive\_scan}}
 \item \texttt{std::inner\_product}
 \item \texttt{std::adjacent\_difference}
 \item \texttt{std::sample}
@@ -142,7 +157,7 @@
 \item \texttt{std::set\_difference}
 \item \texttt{std::set\_intersection}
 \item \texttt{std::set\_union}
-\item \texttt{std::set\_symmetric\_difference}
+\item \small{\texttt{std::set\_symmetric\_difference}}
 \item \texttt{std::includes}
 \item \texttt{std::merge}
 \end{enumerate}
@@ -207,11 +222,12 @@
 \item \texttt{std::uninitialized\_copy}
 \item \texttt{std::uninitialized\_move}
 \item \texttt{std::destroy}
-\item \small{\texttt{std::uninitialized\_default\_construct}}
+
+\item \footnotesize{\texttt{std::uninitialized\_default\_construct}}
 \item \texttt{std::uninitialized\_value\_construct}
 \end{enumerate}
 
-\section{*\_N algorithms:}
+\section{*\_N algorithms}
 \begin{enumerate}[resume]
 \setlength\itemsep{0em}
 \item \texttt{std::copy\_n}
@@ -226,6 +242,6 @@
 \item \texttt{std::uninitialized\_value\_constructor\_n}
 \item \texttt{std::destroy\_n}
 \end{enumerate}
+\footnotetext{\color{headcolor}Algorithms in talk by Jonathan Boccara \href{https://www.youtube.com/watch?v=2olsGf6JIkU}{“105 STL Algorithms in Less Than an Hour”}}
 \end{multicols}
-
 \end{document}
